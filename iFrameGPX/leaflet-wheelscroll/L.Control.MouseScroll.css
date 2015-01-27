@@ -1,0 +1,19 @@
+.leaflet-control-scrollzoom {
+  text-indent: -999em;
+  background-image: url(./imgs/wheel.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+}
+.dark .leaflet-control-scrollzoom {
+  background-image: url(./imgs/wheel-dark.png);
+}
+.leaflet-control-scrollzoom:focus {
+  outline: 0;
+}
+.leaflet-control-scrollzoom.leaflet-disabled {
+  background-image: url(./imgs/wheel_over.png);
+}
+.dark .leaflet-control-scrollzoom.leaflet-disabled {
+  background-image: url(./imgs/wheel_over-dark.png);
+}
