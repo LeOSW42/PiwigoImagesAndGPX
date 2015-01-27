@@ -1,6 +1,7 @@
 # PiwigoImagesAndGPX
 
-Create an map which can display one GPX file and/or Images from a piwigo category
+Create an map which can display one GPX file and/or Images from a piwigo category  
+Demo (map on the top) : http://leo.lstronic.com/piwigo/index.php?/category/6
 
 # Installation
 
