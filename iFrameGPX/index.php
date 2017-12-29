@@ -35,7 +35,7 @@
 // IGN URL to the IGN layer
 var KeyIGN = "ataevimogohmg1wxpg1jo2wh" // professionels.ign.fr
 
-var url_wmts_ign =  "http://wxs.ign.fr/"+ 
+var url_wmts_ign =  "//wxs.ign.fr/"+ 
     KeyIGN + 
     "/geoportail/wmts?LAYER="+
     "GEOGRAPHICALGRIDSYSTEMS.MAPS"+
@@ -46,10 +46,10 @@ var url_wmts_ign =  "http://wxs.ign.fr/"+
     "&TILEMATRIXSET=PM&&TILEMATRIX={z}&TILECOL={x}&TILEROW={y}"; // Correct tile
 
 // Differents layers for the map
-var	osmfr   = L.tileLayer('http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {maxZoom: 20, attribution: 'Maps © <a href="http://www.openstreetmap.fr">OpenSreetMap France</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
-    outdoor  = L.tileLayer('http://{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png', {maxZoom: 18, attribution: 'Maps © <a href="http://www.thunderforest.com">Thunderforest</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'}),
-    outdoora  = L.tileLayer('http://s1.outdooractive.com/osm/OSMSummer/{z}/{x}/{y}.png', {maxZoom: 18, attribution: 'Maps © <a href="http://www.outdooractive.com">Outdoor Active</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'}),
-    ostopo  = L.tileLayer('http://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {maxZoom: 16, attribution: 'Maps © <a href="http://opentopomap.org">OpenTopoMap</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'}),
+var	osmfr   = L.tileLayer('//{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {maxZoom: 20, attribution: 'Maps © <a href="http://www.openstreetmap.fr">OpenSreetMap France</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'});
+    outdoor  = L.tileLayer('//{s}.tile.thunderforest.com/outdoors/{z}/{x}/{y}.png', {maxZoom: 18, attribution: 'Maps © <a href="http://www.thunderforest.com">Thunderforest</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'}),
+    outdoora  = L.tileLayer('//s1.outdooractive.com/osm/OSMSummer/{z}/{x}/{y}.png', {maxZoom: 18, attribution: 'Maps © <a href="http://www.outdooractive.com">Outdoor Active</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'}),
+    ostopo  = L.tileLayer('//{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {maxZoom: 16, attribution: 'Maps © <a href="http://opentopomap.org">OpenTopoMap</a>, Data © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>'}),
     ign  = L.tileLayer(url_wmts_ign, {maxZoom: 18, attribution: 'Maps & Data © <a href="http://www.ign.fr/">IGN</a>'});
 
 // Creation of the map
@@ -147,7 +147,13 @@ var g = new L.GPX(gpx, {
 	marker_options: {
 		startIconUrl: './leaflet-gpx/start.png',
 		endIconUrl: './leaflet-gpx/finish.png',
-		shadowUrl: ''
+		wptIconUrls : {
+			'night': './leaflet-gpx/night.png',
+		},
+		shadowUrl: '',
+		iconSize: [32, 37],
+		iconAnchor: [16, 37],
+		clickable: false
 	}
 });
 g.on('loaded', function(e) {
